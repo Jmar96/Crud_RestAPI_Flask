@@ -20,7 +20,7 @@ stores = [
 def get_stores():
     return {"store":stores}
 
-@app.post("/store")
+@app.post("/store") #http://127.0.0.1:5000/store
 def create_store():
     request_data = request.get_json()
     new_store = {
@@ -30,7 +30,7 @@ def create_store():
     stores.append(new_store)
     return new_store, 201
 
-@app.post("/store/<string:name>/item")
+@app.post("/store/<string:name>/item") #http://127.0.0.1:5000/store/My 2nd Store/item
 def create_item(name):
     request_data = request.get_json()
     for store in stores:
@@ -40,21 +40,21 @@ def create_item(name):
             return new_item, 201
     return {"message":"Store not exist"}, 404
 
-@app.get("/store/<string:name>")
+@app.get("/store/<string:name>") #http://127.0.0.1:5000/store/My 2nd Store
 def get_store(name):
     for store in stores:
         if store["name"] == name:
             return store, 201
     return {"message":"Store not exist"}, 404
 
-@app.get("/store/<string:name>/item")
+@app.get("/store/<string:name>/item") #http://127.0.0.1:5000/store/My 2nd Store/item
 def get_store_item(name):
     for store in stores:
         if store["name"] == name:
             return {"items":store["items"]}, 201
     return {"message":"Store not exist"}, 404
 
-@app.put("/store/<string:name>")
+@app.put("/store/<string:name>") #http://127.0.0.1:5000/store/My 2nd Store
 def update_store(name):
     request_data = request.get_json()
     for store in stores:
@@ -64,7 +64,7 @@ def update_store(name):
             return {"message": "Store updated successfully", "store": store}, 201
     return {"message": "Store not found"}, 404
 
-@app.delete("/store/<string:name>")
+@app.delete("/store/<string:name>") #http://127.0.0.1:5000/store/My Store 2
 def delete_store(name):
     global stores
     stores = [store for store in stores if store["name"] != name]
