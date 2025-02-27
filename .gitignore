@@ -1,0 +1,15 @@
+#virtual environment
+.venv/*
+.venv
+.env
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+#excel files
+*.xlsx
+*.csv
+
+*.zip
