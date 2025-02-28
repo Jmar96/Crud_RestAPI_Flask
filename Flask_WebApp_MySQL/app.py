@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from config import Config
 from extensions import db
 from flask_migrate import Migrate
+from routes import main 
 
 
 def create_app():
@@ -21,10 +22,8 @@ def register_extension(app):
     migrate = Migrate(app, db)
 
 def register_resources(app):
-    #homepage
-    @app.route('/', methods=['GET'])
-    def home():
-        return render_template('index.html')
+    app.register_blueprint(main)
+    # I stopped here because it's not working or running anymore -> https://www.youtube.com/watch?v=L6f5i8aL1gU&list=PLXpWu84ZnHT-e-f6d_r6Q21cTsGAS4xXX&index=3
 
 if __name__ == "__main__":
     app = create_app()
