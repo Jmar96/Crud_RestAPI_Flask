@@ -23,7 +23,6 @@ def register_extension(app):
 
 def register_resources(app):
     app.register_blueprint(main)
-    # I stopped here because it's not working or running anymore -> https://www.youtube.com/watch?v=L6f5i8aL1gU&list=PLXpWu84ZnHT-e-f6d_r6Q21cTsGAS4xXX&index=3
 
 if __name__ == "__main__":
     app = create_app()
