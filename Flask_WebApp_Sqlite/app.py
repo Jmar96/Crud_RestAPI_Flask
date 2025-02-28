@@ -6,14 +6,15 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///items.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
-@app.before_first_request
+@app.before_request
 def create_tables():
     db.create_all()
 
 @app.route('/')
 def home():
     items = Item.query.all()
-    return render_template('index.html', items=items)
+    item_count = Item.query.count()
+    return render_template('index.html', items=items, item_count=item_count)
 
 @app.route('/create', methods=['GET', 'POST'])
 def create():

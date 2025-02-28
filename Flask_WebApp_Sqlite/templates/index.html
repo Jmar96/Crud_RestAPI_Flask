@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Items List</h1>
+    <p>Total items: {{ item_count }}</p>
     <a href="{{ url_for('create') }}">Create New Item</a>
     <ul>
         {% for item in items %}
