@@ -1,7 +1,9 @@
 from . import db
 
-class User(db.Model):
+class Badyet_Items(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    nome = db.Column(db.String(80))
-    email = db.Column(db.String(120))
-    celular = db.Column(db.String(20))
+    name = db.Column(db.String(120))
+    description = db.Column(db.String(200))
+    category = db.Column(db.String(90))
+    length = db.Column(db.String(90))
+    amount = db.Column(db.Float)
