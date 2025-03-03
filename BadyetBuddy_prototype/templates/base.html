@@ -10,8 +10,8 @@
     <header>
         <nav>
             <ul>
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('main.home') }}">Home</a></li>
+                <li><a href="{{ url_for('main.about') }}">About</a></li>
             </ul>
         </nav>
     </header>
@@ -23,13 +23,3 @@
     </footer>
 </body>
 </html>
-
-
-
-BadyetBuddy/
-├── app/
-│   ├── __init__.py
-│   ├── routes.py
-├── templates/
-│   ├── index.html
-│   ├── base.html

@@ -8,6 +8,11 @@ main = Blueprint('main', __name__)
 def home():
     return render_template('index.html')
 
+
+@main.route('/about')
+def about():
+    return render_template('about.html')
+
 @main.route('/items', methods=['GET'])
 def get_items():
     b_items = Badyet_Items.query.all()
