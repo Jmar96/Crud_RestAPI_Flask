@@ -29,8 +29,21 @@ def get_items():
 
 @main.route('/dashboard')
 def dashboard():
-    b_items = Badyet_Items.query.all()
-    items = [
+    a_items = Badyet_Items.query.filter_by(category='income').all()
+    incomes = [
+        {
+            'id': item.id,
+            'name': item.name,
+            'description': item.description,
+            'category': item.category,
+            'length': item.length,
+            'amount': item.amount,
+            'owner_id': item.owner_id
+        } for item in a_items
+    ]
+
+    b_items = Badyet_Items.query.filter_by(category='expense').all()
+    expenses = [
         {
             'id': item.id,
             'name': item.name,
@@ -41,7 +54,7 @@ def dashboard():
             'owner_id': item.owner_id
         } for item in b_items
     ]
-    return render_template('dashboard.html', items=items, page="dashb")
+    return render_template('dashboard.html', incomes=incomes, page="dashb")
 
 @main.route('/incomes')
 def incomes():
