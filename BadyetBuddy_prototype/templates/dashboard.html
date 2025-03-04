@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Home - My Flask App{% endblock %}
+
+{% block content %}
+<div class="parent">
+    <div class="upper_left">
+        ads
+    </div>
+    <div class="bottom_left">
+        ads
+    </div>
+    <div class="top_main">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('main.dashboard') }}">DashBoard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('main.incomes') }}">Incomes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('main.expenses') }}">Expenses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Savings</a>
+            </li>
+        </ul>
+    </div>
+    <div class="main">
+        <!-- Main-->
+        <h1>Items List</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Length</th>
+                    <th>Amount</th>
+                    <th>Owner ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.category }}</td>
+                    <td>{{ item.length }}</td>
+                    <td>{{ item.amount }}</td>
+                    <td>{{ item.owner_id }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="upper_right">
+        ads
+    </div>
+    <div class="bottom_right">
+        ads
+    </div>
+</div>
+{% endblock %}
