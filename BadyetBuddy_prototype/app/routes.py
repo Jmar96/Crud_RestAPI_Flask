@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, render_template
 from .models import Badyet_Items
 from . import db
-from ..util.query_helper import get_items
+from ..util import query_helper
 
 main = Blueprint('main', __name__)
 
@@ -16,17 +16,7 @@ def about():
 @main.route('/items', methods=['GET'])
 def get_items():
     b_items = Badyet_Items.query.all()
-    return jsonify([
-        {
-            'id': item.id, 
-            'name': item.name, 
-            'description': item.description, 
-            'category': item.category, 
-            'length': item.length, 
-            'amount': item.amount,
-            'owner_id': item.owner_id
-        } for item in b_items
-    ])
+    return jsonify(query_helper.get_all_items())
 
 @main.route('/dashboard')
 def dashboard():

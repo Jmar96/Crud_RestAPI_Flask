@@ -1,6 +1,6 @@
 from ..app.models import Badyet_Items
 
-def get_items(categry):
+def get_all_items(categry):
     items = []
     if categry == None or categry == "":
         items = Badyet_Items.query.all()
