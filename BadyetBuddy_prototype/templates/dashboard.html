@@ -28,7 +28,7 @@
     </div>
     <div class="main">
         <!-- Main-->
-        <h1>Items List</h1>
+        <h1>Incomes</h1>
         <table>
             <thead>
                 <tr>
@@ -42,7 +42,35 @@
                 </tr>
             </thead>
             <tbody>
-                {% for item in items %}
+                {% for item in incomes %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.category }}</td>
+                    <td>{{ item.length }}</td>
+                    <td>{{ item.amount }}</td>
+                    <td>{{ item.owner_id }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <h1>Expenses</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Length</th>
+                    <th>Amount</th>
+                    <th>Owner ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in expenses %}
                 <tr>
                     <td>{{ item.id }}</td>
                     <td>{{ item.name }}</td>

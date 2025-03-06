@@ -45,7 +45,7 @@ def dashboard():
             'owner_id': item.owner_id
         } for item in b_items
     ]
-    return render_template('dashboard.html', incomes=incomes, page="dashb")
+    return render_template('dashboard.html', incomes=incomes, expenses=expenses, page="dashb")
 
 @main.route('/incomes')
 def incomes():
