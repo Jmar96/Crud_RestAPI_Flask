@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, render_template
 from .models import Badyet_Items
 from . import db
-from ..util import query_helper
+from .util import query_helper
 
 main = Blueprint('main', __name__)
 

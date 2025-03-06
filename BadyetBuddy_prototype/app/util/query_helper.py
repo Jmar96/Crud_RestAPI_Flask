@@ -1,4 +1,4 @@
-from ..app.models import Badyet_Items
+from ..models import Badyet_Items
 
 def get_all_items(categry):
     items = []

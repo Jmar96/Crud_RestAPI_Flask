@@ -1,0 +1,18 @@
+BadyetBuddy/
+├── app/
+│   ├── __init__.py
+│   ├── routes.py
+│   ├── models.py
+├── templates/
+│   ├── index.html
+│   ├── about.html
+│   ├── base.html
+├── static/
+│   ├── style.css
+├── instance
+│   ├── badyetbuddy.db
+├── util/
+│   ├── __init__.py
+│   ├── query_helper.py
+├── app.py
+├── config.py
