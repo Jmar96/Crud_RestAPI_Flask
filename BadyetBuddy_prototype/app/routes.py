@@ -32,6 +32,7 @@ def dashboard():
             'owner_id': item.owner_id
         } for item in a_items
     ]
+    a_total = query_helper.get_sum("income")
 
     b_items = Badyet_Items.query.filter_by(category='expense').all()
     expenses = [
@@ -45,7 +46,9 @@ def dashboard():
             'owner_id': item.owner_id
         } for item in b_items
     ]
-    return render_template('dashboard.html', incomes=incomes, expenses=expenses, page="dashb")
+    b_total = query_helper.get_sum("expense")
+
+    return render_template('dashboard.html', incomes=incomes, expenses=expenses, incm_total=a_total, expn_total=b_total, page="dashb")
 
 @main.route('/incomes')
 def incomes():

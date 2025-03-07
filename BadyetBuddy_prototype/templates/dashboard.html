@@ -28,35 +28,13 @@
     </div>
     <div class="main">
         <!-- Main-->
-        <h1>Incomes</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                    <th>Length</th>
-                    <th>Amount</th>
-                    <th>Owner ID</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in incomes %}
-                <tr>
-                    <td>{{ item.id }}</td>
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.description }}</td>
-                    <td>{{ item.category }}</td>
-                    <td>{{ item.length }}</td>
-                    <td>{{ item.amount }}</td>
-                    <td>{{ item.owner_id }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <h1>Income: {{incm_total}}</h1>
+        {% for item in incomes %}
+        <button type="button" class="btn btn-lg btn-primary" data-toggle="popover" title="Popover title"
+            data-content="{{ item.length }} | {{ item.description }}">P{{ item.amount }}  {{ item.name }}</button>
+        {% endfor %}
         <br>
-        <h1>Expenses</h1>
+        <h1>Expenses: {{expn_total}}</h1>
         <table>
             <thead>
                 <tr>
@@ -91,4 +69,10 @@
         ads
     </div>
 </div>
+<script>
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+</script>
+
 {% endblock %}
