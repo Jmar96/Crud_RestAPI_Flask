@@ -55,6 +55,36 @@
                 {% endfor %}
             </tbody>
         </table>
+        <h1>Create a New Record</h1>
+        <form method="POST" action="/add">
+            <input type="text" id="pg_name" name="pg_name" value="incomes" hidden>
+            <input type="text" id="owner_id" name="owner_id" value="1" hidden>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+    
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" required><br><br>
+    
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" required><br><br>
+            
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                <option value="income" selected>Income</option>
+                <option value="expense">Expense</option>
+            </select><br><br>
+
+            <label for="length">Length:</label>
+            <select id="length" name="length" required>
+                <option value="monthly" selected>Monthly</option>
+                <option value="bimonthly" disabled>Bimonthly</option>
+                <option value="weekly" disabled>Weekly</option>
+            </select><br><br>
+
+
+            <button type="submit">Submit</button>
+        </form>
     </div>
     <div class="upper_right">
         ads

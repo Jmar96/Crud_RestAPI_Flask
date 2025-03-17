@@ -31,14 +31,14 @@
         <h1>Income: {{incm_total}}</h1>
         {% for item in incomes %}
         <div class="alert alert-success" role="alert">
-            <h2>P{{ item.amount }}</h2> {{ item.name }} - {{ item.description }} <a href="#" class="alert-link">Edit</a>
+            <h2>P{{ item.amount }}</h2> {{ item.name }} - {{ item.description }} <a href="{{ url_for('main.edit_record', id=item.id) }}" class="alert-link">Edit</a>
         </div>
         {% endfor %}
         <br>
         <h1>Expenses: {{expn_total}}</h1>
         {% for item in expenses %}
         <div class="alert alert-warning" role="alert">
-            <h2>P{{ item.amount }}</h2> {{ item.name }} - {{ item.description }} <a href="#" class="alert-link">Edit</a>
+            <h2>P{{ item.amount }}</h2> {{ item.name }} - {{ item.description }} <a href="{{ url_for('main.edit_record', id=item.id) }}" class="alert-link">Edit</a>
         </div>
         {% endfor %}
     </div>

@@ -20,7 +20,7 @@
                 <a class="nav-link" href="{{ url_for('main.incomes') }}">Incomes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="{{ url_for('main.expenses') }}">Expenses</a>
+                <a class="nav-link" href="{{ url_for('main.expenses') }}">Expenses</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Savings</a>
@@ -29,51 +29,21 @@
     </div>
     <div class="main">
         <!-- Main-->
-        <h1>Items List</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                    <th>Length</th>
-                    <th>Amount</th>
-                    <th>Owner ID</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in expenses %}
-                <tr>
-                    <td>{{ item.id }}</td>
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.description }}</td>
-                    <td>{{ item.category }}</td>
-                    <td>{{ item.length }}</td>
-                    <td>{{ item.amount }}</td>
-                    <td>{{ item.owner_id }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <h1>Create a New Record</h1>
-        <form method="POST" action="/add">
-            <input type="text" id="pg_name" name="pg_name" value="expenses" hidden>
-            <input type="text" id="owner_id" name="owner_id" value="1" hidden>
-
+        <h1>Edit Record</h1>
+        <form method="POST" action="">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br><br>
+            <input type="text" id="name" name="name" value="{{ record.name }}" required><br><br>
     
             <label for="description">Description:</label>
-            <input type="text" id="description" name="description" required><br><br>
+            <input type="text" id="description" name="description" value="{{ record.description }}" required><br><br>
     
             <label for="amount">Amount:</label>
-            <input type="number" id="amount" name="amount" required><br><br>
+            <input type="number" id="amount" name="amount" value="{{ record.amount }}" required><br><br>
             
             <label for="category">Category:</label>
             <select id="category" name="category" required>
-                <option value="expense" selected>Expense</option>
-                <option value="income">Income</option>
+                <option value="expense" {% if record.category == 'expense' %}selected{% endif %}>Expense</option>
+                <option value="income" {% if record.category == 'income' %}selected{% endif %}>Income</option>
             </select><br><br>
 
             <label for="length">Length:</label>
@@ -82,9 +52,11 @@
                 <option value="bimonthly" disabled>Bimonthly</option>
                 <option value="weekly" disabled>Weekly</option>
             </select><br><br>
-
-
-            <button type="submit">Submit</button>
+    
+            <button type="submit">Update</button>
+            <a href="{{ url_for('main.dashboard') }}">
+                <button type="button">Cancel</button>
+            </a>
         </form>
     </div>
     <div class="upper_right">
