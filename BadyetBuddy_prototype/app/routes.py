@@ -116,3 +116,11 @@ def edit_record(id):
         db.session.commit()
         return redirect(url_for("main.dashboard"))
     return render_template("edit.html", record=record)
+
+
+@main.route("/delete/<int:id>", methods=["POST"])
+def delete_record(id):
+    record = Badyet_Items.query.get_or_404(id)
+    db.session.delete(record)
+    db.session.commit()
+    return redirect(url_for("main.dashboard"))
